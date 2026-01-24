@@ -5,12 +5,12 @@ const Navbar = () => {
   return (
     <nav className="bg-black p-4 flex items-center justify-between">
       
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-5 ">
         <a href="/">
           <img
-            src="/IMG/2.png"
+            src="/IMG/4.png"
             alt="Logo"
-            className="h-10 w-10 object-contain rounded-lg"
+            className="h-15 w-10 object-contain rounded-lg "
           />
         </a>
         <div className="flex flex-col">
@@ -24,7 +24,7 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center space-x-4">
-        <Link to="/contact" className="text-white hover:text-gray-300 border-2 border-purple-500 px-2 py-1">
+        <Link to="/contact" className="text-white hover:text-gray-300 border-2 border-pink-600 px-2 py-1">
           Contact
         </Link>
   
