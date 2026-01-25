@@ -1,7 +1,8 @@
 
 import React from 'react';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
+
+import Main from '../components/Main';
+
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
    
       <div className="p-4">
         <h2 className="text-3xl font-bold mt-4"></h2>
-        <Hero />
+        <Main />
+        
+        
       </div>
     </>
   );
