@@ -1,75 +1,43 @@
- const project1Image = "/img/project1.jpg";
- const project2Image = "/img/project2.jpg";
- const project3Image = "/img/project3.jpg";
-
-
 import { useNavigate } from 'react-router-dom';
+import { projects } from '../data/projects'; 
 
 const Projects = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-12 bg-gray-100">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-8 text-center">Meine Projekte</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-            <img
-              src={project1Image}
-              alt="Projekt 1"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6 flex flex-col flex-grow text-center">
-              <h3 className="text-xl font-semibold mb-4">Projekt 1</h3>
-              <button
-                onClick={() => navigate('/projekt-1')}
-                className="mt-auto bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
-              >
-                Zur Seite
-              </button>
+    <section className="py-16 bg-gray-60">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 className="text-4xl font-bold mb-12 text-center text-gray-900">
+          Meine Projekte
+        </h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300"
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="h-48 w-full object-cover"
+              />
+              <div className="p-6 flex flex-col flex-grow text-center">
+                <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-6 flex-grow">
+                  {project.description}
+                </p>
+                <button
+                  onClick={() => navigate(`/projekt-${project.id}`)}
+                  className="mt-auto bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition font-medium"
+                >
+                  Mehr erfahren
+                </button>
+              </div>
             </div>
-          </div>
-
-        
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-            <img
-              src={project2Image}
-              alt="Projekt 2"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6 flex flex-col flex-grow text-center">
-              <h3 className="text-xl font-semibold mb-4">Projekt 2</h3>
-              <button
-                onClick={() => navigate('/projekt-2')}
-                className="mt-auto bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
-              >
-                Zur Seite
-              </button>
-            </div>
-          </div>
-
-         
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-            <img
-              src={project3Image}
-              alt="Projekt 3"
-              className="h-48 w-full object-cover"
-            />
-            <div className="p-6 flex flex-col flex-grow text-center">
-              <h3 className="text-xl font-semibold mb-4">Projekt 3</h3>
-              <button
-                onClick={() => navigate('/projekt-3')}
-                className="mt-auto bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition"
-              >
-                Zur Seite
-              </button>
-
-
-
-
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>

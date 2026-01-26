@@ -18,11 +18,12 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "projects", element: <Projects /> },
 
-     
-      { path: "projekt-1", element: <div>Projekt 1 – Detailseite</div> },
-      { path: "projekt-2", element: <div>Projekt 2 – Detailseite</div> },
-      { path: "projekt-3", element: <div>Projekt 3 – Detailseite</div> },
-
+      { path: "projekt-1", element: <div className="p-8">Projekt 1 – Detailseite (zukünftig eigene Komponente)</div> },
+      { path: "projekt-2", element: <div className="p-8">Projekt 2 – Detailseite</div> },
+      { path: "projekt-3", element: <div className="p-8">Projekt 3 – Detailseite</div> },
+      { path: "projekt-4", element: <div className="p-8">Projekt 4 – Detailseite</div> },
+      { path: "projekt-5", element: <div className="p-8">Projekt 5 – Detailseite</div> },
+      { path: "projekt-6", element: <div className="p-8">Projekt 6 – Detailseite</div> },
      
       { path: "*", element: <div>404 – Seite nicht gefunden</div> },
     ],

@@ -9,9 +9,9 @@ const Navbar = () => {
       <div className="flex items-center space-x-5 mb-4 md:mb-0">
       
           <img
-            src="/IMG/4.png"
+            src="/IMG/3.png"
             alt="Logo"
-            className="h-19 w-19 object-contain rounded-lg"
+            className="h-16 w-12 object-contain rounded-lg"
           />
         
         <div className="flex flex-col">
