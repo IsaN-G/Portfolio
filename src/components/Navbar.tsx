@@ -7,13 +7,13 @@ const Navbar = () => {
       
      
       <div className="flex items-center space-x-5 mb-4 md:mb-0">
-        <a href="/">
+      
           <img
             src="/IMG/4.png"
             alt="Logo"
             className="h-19 w-19 object-contain rounded-lg"
           />
-        </a>
+        
         <div className="flex flex-col">
            <span className="text-white text-lg md:text-xl">
             <span className="font-normal text-pink-600">Isabelle</span>{" "}
