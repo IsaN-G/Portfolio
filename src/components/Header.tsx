@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Header = () => {
   return (
@@ -11,7 +11,8 @@ const Header = () => {
         loop
         playsInline
       />
-
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full"></div>
+        
       <div className="relative z-10 flex items-center justify-center h-full text-center bg-black/40">
         
         <div className="border-4 border-pink-600 px-6 py-10 md:px-20 md:py-24 flex flex-col justify-end">

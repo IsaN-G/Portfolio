@@ -13,7 +13,7 @@ const Projects = () => {
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-3xl font-bold mb-8 text-center">Meine Projekte</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Projekt 1 */}
+          
           <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
             <img
               src={project1Image}
@@ -31,7 +31,7 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Projekt 2 */}
+        
           <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
             <img
               src={project2Image}
@@ -49,7 +49,7 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Projekt 3 */}
+         
           <div className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
             <img
               src={project3Image}
@@ -64,6 +64,10 @@ const Projects = () => {
               >
                 Zur Seite
               </button>
+
+
+
+
             </div>
           </div>
         </div>
