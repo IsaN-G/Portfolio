@@ -31,7 +31,7 @@ const Projects = () => {
                 </p>
                 <button
                   onClick={() => navigate(`/projekt-${project.id}`)}
-                  className="mt-auto bg-black text-white py-3 px-6 rounded-lg hover:bg-gray-800 transition font-medium"
+                  className="mt-auto cursor-pointer hover:text-gray-300 bg-black border-3 border-pink-600 text-white py-3 px-6 transition font-medium"
                 >
                   Mehr erfahren
                 </button>

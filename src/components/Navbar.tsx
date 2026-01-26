@@ -31,24 +31,10 @@ const Navbar = () => {
       <div className="flex items-center space-x-4">
         <Link
           to="/contact"
-          className="text-white hover:text-gray-300 border-2 border-pink-600 px-2 py-1"
+          className="text-white cursor-pointer hover:text-gray-300 border-2 border-pink-600 px-2 py-1"
         >
           Contact
         </Link>
-        <a href="https://github.com/..." target="_blank" rel="noopener noreferrer">
-          <img
-            src="/IMG/GitHubIcon.png"
-            alt="GitHub"
-            className="h-7 w-7 hover:opacity-80 transition-opacity"
-          />
-        </a>
-        <a href="https://linkedin.com/in/..." target="_blank" rel="noopener noreferrer">
-          <img
-            src="/IMG/LinkedInIcon.png"
-            alt="LinkedIn"
-            className="h-7 w-7 hover:opacity-80 transition-opacity"
-          />
-        </a>
       </div>
     </nav>
   );
