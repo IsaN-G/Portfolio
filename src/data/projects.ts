@@ -2,40 +2,83 @@ import type { Projects } from "./type";
 
 export const projects : Projects [] = [
   {
-    id: 1,
-    title: "Projekt 1",
+    id: "1",
+    title: "FilmStream",
     image: "../IMG/project1.png",
-    description: "Beschreibung für Projekt 1"
+    description: "Streaming Website für Filme und Serien mit benutzerfreundlicher Oberfläche",
+    year: 2025,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["JavaScript", "HTML,CSS", "SCSS"],
+    liveUrl: "https://isan-g.github.io/Filme/",
+    githubUrl: "https://github.com/IsaN-G/Filme.git"
   }, 
     {
-    id: 2,
-    title: "Projekt 2",
+    id: "2",
+    title: "MusicStream",
     image:  "../IMG/project2.png",
-    description: "Beschreibung für Projekt 2"
+    description: "Streaming Dienst mit Abonnement-Modell und personalisierten Empfehlungen",
+    year: 2025,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["JavaScript", "HTML,CSS"],
+    liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
+    githubUrl: ""
   },
     {
-    id: 3,
-    title: "Projekt 3",
+    id: "3",
+    title: "Website",
     image:  "../IMG/project3.png",
-    description: "Beschreibung für Projekt 3"
+    description: "Informations Seite über den Marianengraben",
+    year: 2025,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["JavaScript", "HTML,CSS"],
+    liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
+    githubUrl: ""
   },
   {
-    id: 4,
-    title: "Projekt 4",
+    id: "4",
+    title: "Einladung",
     image:  "../IMG/project4.png",
-    description: "Landingpage für Startup mit Animationen (Framer Motion)",
+    description: "Einladungs App", 
+    year: 2026,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["JavaScript", "HTML,CSS"],
+    liveUrl: "https://isan-g.github.io/Einladung-zum-Geburtstag/",
+    githubUrl: "https://github.com/IsaN-G/Einladung-zum-Geburtstag.git"
+
   },
   {
-    id: 5,
-    title: "Projekt 5",
+    id: "5",
+    title: "Bewerbungs App",
     image:  "../IMG/project5.png",
-    description: "Blog-Plattform mit Markdown-Unterstützung & SEO",
+    description: "Bewerbungs App",
+    year: 2026,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["React","Typscript","Tailwindcss"],
+    liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
+    githubUrl: ""
   },
   {
-    id: 6,
-    title: "Projekt 6",
-    image:  "../IMG/project1.png",
-    description: "Interaktive Karte mit Leaflet und GeoJSON-Daten",
+    id: "6",
+    title: "To Do App",
+    image:  "../IMG/project6.png",
+    description: "Interaktive Karte mit Daten",
+    year: 2025,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["JavaScript", "HTML,CSS"],
+    liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
+    githubUrl: ""
   },
 
 

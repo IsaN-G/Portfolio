@@ -8,13 +8,17 @@ type FooterProps = {
 const Footer = ({ theme }: FooterProps) => {
   return (
     <footer
-      className={`py-10 transition-colors duration-500 ${
-        theme === "dark" ? "bg-slate-950 text-gray-400" : "bg-slate-200 text-gray-700"
-      }`}
-    >
+    className={`py-10 transition-colors duration-500 ${
+      theme === "dark" 
+        ? "bg-black text-gray-300" 
+        : "bg-gray-950 text-gray-300"
+    }`}
+  >
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
        
-        <img src="/IMG/3.png" alt="Logo" className="h-12" />
+        <Link to="/" className="block hover:opacity-90 hover:scale-105 transition-all duration-200">
+         <img src="/IMG/3.png" alt="Zur Startseite" className="h-12" />
+        </Link>
 
       <div className="flex items-center space-x-4">
         <Link

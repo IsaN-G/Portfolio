@@ -25,7 +25,7 @@ import {createContext,useContext,useEffect,useState,type ReactNode, } from "reac
     return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
   };
   
-  export const useTheme = (): ThemeContextType => {
+  export const useTheme = () => {
     const context = useContext(ThemeContext);
     if (!context) throw new Error("useTheme muss innerhalb von ThemeProvider verwendet werden");
     return context;

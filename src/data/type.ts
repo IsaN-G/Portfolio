@@ -1,7 +1,16 @@
 export type Projects = {
-    id: number;
+    id:  string;
     title: string;
     image: string;
-    description: string;
+    description?: string;
+    year?: number | string;
+    client?: string;
+    role?: string;
+    technologies?: string[];
+    tags?: string[];
+    liveUrl?: string;
+    githubUrl?: string;
+    category?: string;
+
 };
 
