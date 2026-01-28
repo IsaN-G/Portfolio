@@ -31,7 +31,7 @@ const ProjectDetail = () => {
   return (
     <div className="max-w-5xl mx-auto px-6 py-12 md:py-16">
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
-        {/* Linke Spalte: Bild / Galerie */}
+       
         <div>
           <img
             src={project.image}
@@ -39,35 +39,21 @@ const ProjectDetail = () => {
             className="w-full rounded-xl shadow-2xl object-cover max-h-[600px]"
           />
 
-          {/* Optional: kleine Galerie / weitere Bilder */}
-          {/* {project.gallery && (
-            <div className="mt-6 grid grid-cols-3 gap-3">
-              {project.gallery.map((img, idx) => (
-                <img
-                  key={idx}
-                  src={img}
-                  alt={`${project.title} - Bild ${idx + 1}`}
-                  className="rounded-lg object-cover aspect-square cursor-pointer hover:opacity-90 transition"
-                />
-              ))}
-            </div>
-          )} */}
+     
         </div>
 
-        {/* Rechte Spalte: Infos */}
         <div>
           <h1 className="text-3xl md:text-4xl font-bold mb-3 text-gray-900 dark:text-gray-100">
             {project.title}
           </h1>
 
-          {/* Optional: Jahr / Kategorie / Status */}
           {project.year && (
             <div className="text-gray-500 dark:text-gray-400 mb-6">
               {project.year} • {project.category || "Webprojekt"}
             </div>
           )}
 
-          {/* Beschreibung */}
+          
           {project.description && (
             <div className="prose dark:prose-invert max-w-none mb-8">
               <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
@@ -76,7 +62,6 @@ const ProjectDetail = () => {
             </div>
           )}
 
-          {/* Eigenschaften / Tags */}
           <div className="mb-8">
             <h3 className="font-semibold text-lg mb-3">Details</h3>
             <ul className="space-y-2 text-gray-700 dark:text-gray-300">
@@ -111,7 +96,6 @@ const ProjectDetail = () => {
             </ul>
           </div>
 
-          {/* Buttons */}
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => navigate(-1)}
@@ -120,7 +104,6 @@ const ProjectDetail = () => {
               ← Zurück
             </button>
 
-            {/* Optional: Link zur Live-Seite / GitHub */}
             {project.liveUrl && (
               <a
                 href={project.liveUrl}

@@ -16,9 +16,17 @@ const Footer = ({ theme }: FooterProps) => {
   >
       <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
        
-        <Link to="/" className="block hover:opacity-90 hover:scale-105 transition-all duration-200">
-         <img src="/IMG/3.png" alt="Zur Startseite" className="h-12" />
-        </Link>
+      <Link 
+  to="/" 
+  className="block hover:opacity-90 hover:scale-105 transition-all duration-200"
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+>
+  <img 
+    src="/IMG/3.png" 
+    alt="Zur Startseite" 
+    className="h-12" 
+  />
+</Link>
 
       <div className="flex items-center space-x-4">
         <Link
@@ -32,10 +40,10 @@ const Footer = ({ theme }: FooterProps) => {
         <div className="flex flex-col items-center gap-2">
           <span className="text-sm uppercase tracking-wide text-gray-300">Folge mir auf</span>
           <div className="flex gap-6">
-            <Link to="https://github.com/deinname" target="_blank" rel="noopener noreferrer">
+            <Link to="https://github.com/IsaN-G" target="_blank" rel="noopener noreferrer">
               <img src="/IMG/GitHubIcon.png" alt="GitHub" className="h-7 w-7 hover:opacity-80 transition-opacity" />
             </Link>
-            <Link to="https://linkedin.com/in/deinname" target="_blank" rel="noopener noreferrer">
+            <Link to="https://www.linkedin.com/in/isabelle-nauber-gelhaar-2644b4347/" target="_blank" rel="noopener noreferrer">
               <img src="/IMG/LinkedInIcon.png" alt="LinkedIn" className="h-7 w-7 hover:opacity-80 transition-opacity" />
             </Link>
           </div>
@@ -59,4 +67,5 @@ const Footer = ({ theme }: FooterProps) => {
 };
 
 export default Footer;
+
 
