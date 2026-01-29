@@ -74,7 +74,7 @@ const Projects = () => {
                 key={project.id}
                 to={`/projects/${project.id}`}
                 className="
-                  group relative flex-shrink-0 w-64 sm:w-72 md:w-80 lg:w-96
+                  group relative flex-shrink-0 w-[85vw] xs:w-[75vw] sm:w-80 md:w-96 lg:w-[28rem]
                   bg-slate-900 rounded-2xl overflow-hidden shadow-xl
                   transition-all duration-500 ease-out
                   hover:shadow-2xl hover:shadow-pink-500/30 hover:-translate-y-3

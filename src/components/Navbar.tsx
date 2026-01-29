@@ -52,8 +52,7 @@ export default function Navbar({ isHome }: NavbarProps) {
       `}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between h-20 md:h-24">
-          
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between h-20 md:h-24 gap-4 md:gap-0">
          
           <div className="flex items-center space-x-5 mb-3 md:mb-0">
           <Link to="/" 

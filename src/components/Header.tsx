@@ -2,7 +2,7 @@
 
 const Header = () => {
   return (
-    <header className="relative w-full h-[350px] md:h-[700px] overflow-hidden">
+    <header className="relative w-full h-[45vh] sm:h-[55vh] md:h-[70vh] lg:h-[90vh] overflow-hidden">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/Video/header.mp4"
