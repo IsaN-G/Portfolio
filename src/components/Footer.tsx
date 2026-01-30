@@ -31,7 +31,8 @@ const Footer = ({ theme }: FooterProps) => {
       <div className="flex items-center space-x-4">
         <Link
           to="/contact"
-          className="text-white cursor-pointer hover:text-gray-300 border-2 border-pink-600 px-2 py-1"
+          className="border-2 border-pink-600 px-3 py-1.5 rounded text-white 
+                hover:bg-pink-600/20 transition"
         >
           Contact
         </Link>

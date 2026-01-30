@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { ExternalLink, Github } from 'lucide-react'; 
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Projects = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -28,38 +29,59 @@ const Projects = () => {
         </h2>
 
         <div className="relative">
-       
+        
           <button
             onClick={() => scroll('left')}
-            className="
-              absolute left-0 sm:left-[-2.5rem] md:left-[-4rem] 
-              top-1/2 -translate-y-1/2 z-10
-              bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm
-              p-3 md:p-4 rounded-full shadow-md hover:shadow-xl
-              text-xl md:text-2xl text-gray-800 dark:text-gray-200
-              transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-pink-500
-            "
+            className={`
+              group absolute -left-6 md:-left-14 lg:-left-20
+              top-[calc(50%-2.5rem)] z-20
+              flex h-16 w-16 md:h-20 md:w-20 items-center justify-center
+              rounded-full 
+              bg-gradient-to-br from-rose-600/25 to-pink-600/10
+              text-white/90
+              backdrop-blur-lg 
+              border border-pink-400/30
+              shadow-xl shadow-black/20 dark:shadow-pink-900/30
+              transition-all duration-500 ease-out
+              hover:scale-110 hover:rotate-6 hover:shadow-2xl hover:shadow-pink-500/50
+              active:scale-95 active:rotate-0
+              focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2
+            `}
             aria-label="Vorheriges Projekt"
           >
-            ←
+            <ChevronLeft 
+              className="h-8 w-8 md:h-10 md:w-10 transition-transform group-hover:-translate-x-1.5" 
+              strokeWidth={1.8} 
+            />
           </button>
 
+       
           <button
             onClick={() => scroll('right')}
-            className="
-              absolute right-0 sm:right-[-2.5rem] md:right-[-4rem] 
-              top-1/2 -translate-y-1/2 z-10
-              bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm
-              p-3 md:p-4 rounded-full shadow-md hover:shadow-xl
-              text-xl md:text-2xl text-gray-800 dark:text-gray-200
-              transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-pink-500
-            "
+            className={`
+              group absolute -right-6 md:-right-14 lg:-right-20
+              top-[calc(50%-2.5rem)] z-20
+              flex h-16 w-16 md:h-20 md:w-20 items-center justify-center
+              rounded-full 
+              bg-gradient-to-br from-pink-600/10 to-rose-600/25
+              text-white/90
+              backdrop-blur-lg 
+              border border-pink-400/30
+              shadow-xl shadow-black/20 dark:shadow-pink-900/30
+              transition-all duration-500 ease-out
+              hover:scale-110 hover:-rotate-6 hover:shadow-2xl hover:shadow-pink-500/50
+              active:scale-95 active:rotate-0
+              focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-offset-2
+            `}
             aria-label="Nächstes Projekt"
           >
-            →
+            <ChevronRight 
+              className="h-8 w-8 md:h-10 md:w-10 transition-transform group-hover:translate-x-1.5" 
+              strokeWidth={1.8} 
+            />
           </button>
 
-          
+        
           <div
             ref={scrollContainerRef}
             className="
@@ -73,13 +95,13 @@ const Projects = () => {
               <Link
                 key={project.id}
                 to={`/projects/${project.id}`}
-                className="
+                className={`
                   group relative flex-shrink-0 w-[85vw] xs:w-[75vw] sm:w-80 md:w-96 lg:w-[28rem]
                   bg-slate-900 rounded-2xl overflow-hidden shadow-xl
                   transition-all duration-500 ease-out
                   hover:shadow-2xl hover:shadow-pink-500/30 hover:-translate-y-3
                   snap-start
-                "
+                `}
               >
                
                 <div className="relative aspect-[4/3] overflow-hidden">
