@@ -69,4 +69,3 @@ const Footer = ({ theme }: FooterProps) => {
 
 export default Footer;
 
-

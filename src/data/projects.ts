@@ -80,6 +80,20 @@ export const projects : Projects [] = [
     liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
     githubUrl: ""
   },
+  {
+    id: "7",
+    title: "Produktvermarktung",
+    image:  "../IMG/project7.png",
+    description: "Hierbei handelt es sich um die Erstellung eines neuen Produkt",
+    year: 2024,
+    client: "Eigenes Projekt",
+    role: "Full-Stack Entwickler",
+    category: "Webanwendung",
+    technologies: ["Canva"],
+    liveUrl: "https://www.canva.com/design/DAGqgqOnFbs/Pc8T5OgJjLxDSfdXVE2f-g/view?utm_content=DAGqgqOnFbs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he5735a3262",
+    githubUrl: ""
+  },
+
 
 
 
