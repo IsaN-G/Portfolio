@@ -1,4 +1,4 @@
-// Skills.tsx
+
 import { Code, Palette, Terminal, GitBranch, Database, Layout } from 'lucide-react';
 
 const skills = [

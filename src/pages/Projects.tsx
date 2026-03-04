@@ -1,4 +1,4 @@
-// Projects.tsx (modern + scroll + filter)
+
 import { useRef, useState } from 'react';
 import { projects } from '../data/projects';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -27,7 +27,7 @@ const Projects = () => {
 
 
         <div className="flex justify-center gap-4 mb-8 flex-wrap">
-          {["All", "React", "Tailwind", "Node.js"].map(f => (
+          {["All", "React", "Tailwind", "Next.js"].map(f => (
             <button key={f} onClick={() => setFilter(f)}
               className={`px-4 py-2 rounded-lg font-medium transition ${
                 filter === f ? "bg-pink-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 hover:bg-pink-600 hover:text-white"
