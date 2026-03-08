@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 type FooterProps = {
   theme: "light" | "dark";
 };
@@ -8,59 +7,64 @@ type FooterProps = {
 const Footer = ({ theme }: FooterProps) => {
   return (
     <footer
-    className={`py-10 transition-colors duration-500 ${
-      theme === "dark" 
-        ? "bg-black text-gray-300" 
-        : "bg-gray-950 text-gray-300"
-    }`}
-  >
-      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-6">
+      className={`py-12 transition-colors duration-500 ${
+        theme === "dark" 
+          ? "bg-black text-gray-300" 
+          : "bg-gray-950 text-gray-300"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center gap-8">
        
-      <Link 
-  to="/" 
-  className="block hover:opacity-90 hover:scale-105 transition-all duration-200"
-  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
->
-  <img 
-    src="/IMG/3.png" 
-    alt="Zur Startseite" 
-    className="h-12" 
-  />
-</Link>
-
-      <div className="flex items-center space-x-4">
-        <Link
-          to="/contact"
-          className="border-2 border-pink-600 px-3 py-1.5 rounded text-white 
-                hover:bg-pink-600/20 transition"
+        {/* Logo / Zurück nach oben */}
+        <Link 
+          to="/" 
+          className="block hover:opacity-90 hover:scale-105 transition-all duration-200"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
-          Contact
+          <img 
+            src="/IMG/3.png" 
+            alt="Zur Startseite" 
+            className="h-12" 
+          />
         </Link>
-      </div>
+
+        {/* Zentraler Kontakt Button */}
+        <div className="flex items-center">
+          <Link
+            to="/contact"
+            className="px-8 py-3 rounded-full border border-pink-600 text-white text-xs font-black uppercase tracking-widest hover:bg-pink-600 transition-all duration-300"
+          >
+            Schreib mir eine Nachricht
+          </Link>
+        </div>
    
-        <div className="flex flex-col items-center gap-2">
-          <span className="text-sm uppercase tracking-wide text-gray-300">Folge mir auf</span>
-          <div className="flex gap-6">
+        {/* Social Links */}
+        <div className="flex flex-col items-center gap-3">
+          <span className="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-bold">Folge mir</span>
+          <div className="flex gap-8">
             <Link to="https://github.com/IsaN-G" target="_blank" rel="noopener noreferrer">
-              <img src="/IMG/GitHubIcon.png" alt="GitHub" className="h-7 w-7 hover:opacity-80 transition-opacity" />
+              <img src="/IMG/GitHubIcon.png" alt="GitHub" className="h-6 w-6 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all" />
             </Link>
             <Link to="https://www.linkedin.com/in/isabelle-nauber-gelhaar-2644b4347/" target="_blank" rel="noopener noreferrer">
-              <img src="/IMG/LinkedInIcon.png" alt="LinkedIn" className="h-7 w-7 hover:opacity-80 transition-opacity" />
+              <img src="/IMG/LinkedInIcon.png" alt="LinkedIn" className="h-6 w-6 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all" />
             </Link>
           </div>
         </div>
 
-       
-        <div className="w-full border-t border-white/30 mt-6" />
+        {/* Trennlinie */}
+        <div className="w-full max-w-md border-t border-white/10 mt-4" />
 
-        <div className="flex gap-4 text-xs">
-          <Link to="/impressum" className="hover:text-white transition">Impressum</Link>
-          <Link to="/datenschutz" className="hover:text-white transition">Datenschutz</Link>
-        </div>
-
-       
-        <div className="text-xs text-center pt-4">
-          © {new Date().getFullYear()} Isabelle Nauber-Gelhaar — Alle Rechte vorbehalten.
+        {/* Rechtliches & Copyright */}
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex gap-6 text-[10px] uppercase tracking-widest font-medium">
+            <Link to="/impressum" className="hover:text-pink-500 transition">Impressum</Link>
+            <Link to="/datenschutz" className="hover:text-pink-500 transition">Datenschutz</Link>
+          </div>
+          
+          <div className="text-[10px] text-gray-600 text-center tracking-wider">
+            © {new Date().getFullYear()} ISABELLE NAUBER-GELHAAR <br className="sm:hidden" />
+            — ALLE RECHTE VORBEHALTEN.
+          </div>
         </div>
       </div>
     </footer>

@@ -3,7 +3,7 @@ import { Code, Palette, Terminal, GitBranch, Database, Layout } from 'lucide-rea
 
 const skills = [
   { title: "Frontend Development", icon: <Layout size={28} />, description: "React, TypeScript, Tailwind CSS, Next.js", level: 90, color: "from-pink-500 to-rose-600" },
-  { title: "UI/UX Design", icon: <Palette size={28} />, description: "Figma, Canva, Responsive Design", level: 70, color: "from-purple-500 to-indigo-600" },
+  { title: "UI/UX Design", icon: <Palette size={28} />, description: "Figma, Canva, Responsive Design", level: 75, color: "from-purple-500 to-indigo-600" },
   { title: "JavaScript & Tools", icon: <Code size={28} />, description: "JavaScript (ES6+), Bun, Vite, Git, npm/yarn", level: 85, color: "from-yellow-500 to-amber-600" },
   { title: "Version Control & Collaboration", icon: <GitBranch size={28} />, description: "Git, GitHub, GitLab, Pull Requests, Code Reviews", level: 80, color: "from-teal-500 to-cyan-600" },
   { title: "Backend Basics", icon: <Database size={28} />, description: "Node.js, Express, REST APIs, MongoDB", level: 65, color: "from-emerald-500 to-green-600" },

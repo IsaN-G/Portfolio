@@ -1,35 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 
-type NavbarProps = {
-  isHome: boolean;
-};
-
-export default function Navbar({ isHome }: NavbarProps) {
+export default function Navbar({ isHome }: { isHome: boolean }) {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-
-      const sections = ["about", "skills", "projects"];
-      let current = "";
-
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && window.scrollY >= el.offsetTop - 180) {
-          current = id;
-        }
-      }
-      setActiveSection(current || "about");
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -37,94 +16,73 @@ export default function Navbar({ isHome }: NavbarProps) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  // Deutsche Labels für die Navigation
+  const navLinks = [
+    { label: "Über mich", id: "about" },
+    { label: "Skills", id: "skills" },
+    { label: "Projekte", id: "projects" }
+  ];
+
   return (
-    <nav
-      className={`
-        fixed top-0 left-0 right-0 z-50 transition-all duration-300
-        ${scrolled
-          ? theme === "dark"
-            ? "bg-slate-950/95 backdrop-blur-md shadow-lg"
-            : "bg-black/95 backdrop-blur-md shadow-lg"
-          : theme === "dark"
-          ? "bg-slate-950/60"
-          : "bg-black/60"}
-        border-b ${theme === "dark" ? "border-black-700/50" : "border-pink-600/30"}
-      `}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between h-20 md:h-24 gap-4 md:gap-0">
-         
-          <div className="flex items-center space-x-5 mb-3 md:mb-0">
-          <Link to="/" 
-          className="block hover:opacity-90 hover:scale-105 transition-all duration-200"
+    <nav className="fixed top-6 left-0 right-0 z-50 px-4 md:px-8">
+      <div className={`
+        max-w-6xl mx-auto rounded-full transition-all duration-500 border
+        ${scrolled 
+          ? "bg-slate-950/80 backdrop-blur-xl border-slate-800 shadow-2xl py-3 px-8" 
+          : "bg-transparent border-transparent py-5 px-6"}
+        flex items-center justify-between
+      `}>
+        
+        {/* Logo-Bereich */}
+        <Link 
+          to="/" 
+          className="flex items-center gap-3 group"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-    >
-          <img
-          src="/IMG/3.png"
-          alt="Zur Startseite"
-          className="h-16 w-12 object-contain rounded-lg"
-  />
-</Link>
+        >
+          <img 
+            src="/IMG/3.png" 
+            alt="Logo" 
+            className="h-10 w-auto group-hover:rotate-12 transition-transform duration-300" 
+          />
+          <div className="hidden sm:flex items-center gap-3 tracking-tighter">
+            <span className="text-white font-black text-xl italic">
+              Isabelle
+            </span>
+            <div className="h-8 w-[1px] bg-gradient-to-b from-transparent via-pink-600 to-transparent" />
             <div className="flex flex-col">
-              <span className={`text-lg md:text-xl ${theme === "dark" ? "text-white" : "text-white"}`}>
-                <span className="font-normal text-pink-600">Isabelle</span>{" "}
-                <span className="font-bold">Nauber-Gelhaar</span>
-              </span>
-              <span className={`text-sm md:text-base ${theme === "dark" ? "text-gray-400" : "text-gray-400"}`}>
-                Web Developer & Web Designer
-              </span>
+              <span className="text-white font-light text-sm tracking-[0.2em]">Nauber</span>
+              <span className="text-pink-600 font-black text-xs tracking-[0.1em]">Gelhaar</span>
             </div>
           </div>
+        </Link>
 
+        {/* Navigation */}
+        <div className="flex items-center gap-6 md:gap-10">
+          {isHome && (
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollTo(link.id)}
+                  className="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-pink-500 transition-colors"
+                >
+                  {link.label}
+                </button>
+              ))}
+            </div>
+          )}
 
-          <div className="flex items-center space-x-6 md:space-x-10">
-            {isHome && (
-              <>
-                {["About", "Skills", "Projects"].map((label) => {
-                  const id = label.toLowerCase();
-                  return (
-                    <button
-                      key={id}
-                      type="button"
-                      onClick={() => scrollTo(id)}
-                      className={`
-                        cursor-pointer transition-colors text-base font-medium
-                        ${activeSection === id
-                          ? "text-pink-500 font-semibold border-b-2 border-pink-500"
-                          : theme === "dark"
-                          ? "text-gray-100 hover:text-pink-400"
-                          : "text-gray-200 hover:text-pink-400"}
-                      `}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
-              </>
-            )}
-
+          <div className="flex items-center gap-4">
             <Link
               to="/contact"
-              className={`
-                border-2 border-pink-600 px-3 py-1.5 rounded text-white 
-                hover:bg-pink-600/20 transition
-                ${theme === "dark" ? "hover:text-pink-300" : "hover:text-pink-100"}
-              `}
+              className="bg-pink-600 hover:bg-pink-500 text-white text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-full shadow-lg shadow-pink-600/20 transition-all active:scale-95"
             >
-              Contact
+              Kontakt
             </Link>
-
+            
             <button
-              type="button"
               onClick={toggleTheme}
-              aria-label={theme === "light" ? "Zum Dark Mode wechseln" : "Zum Light Mode wechseln"}
-              title={theme === "light" ? "Zum Dark Mode wechseln" : "Zum Light Mode wechseln"}
-              className={`
-                p-2 rounded-full transition-all duration-300
-                ${theme === "dark"
-                  ? "bg-slate-800 hover:bg-slate-700 text-yellow-400 hover:text-yellow-300"
-                  : "bg-gray-200 hover:bg-gray-300 text-slate-700 hover:text-slate-900"}
-              `}
+              className="p-2 text-yellow-400 hover:bg-slate-800 rounded-full transition-colors"
             >
               {theme === "light" ? "🌙" : "☀️"}
             </button>
@@ -134,4 +92,3 @@ export default function Navbar({ isHome }: NavbarProps) {
     </nav>
   );
 }
-
