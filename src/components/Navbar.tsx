@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { FaBars, FaTimes } from "react-icons/fa"; // Icons für das Handy-Menü
 
 export default function Navbar({ isHome }: { isHome: boolean }) {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Zustand für das mobile Menü
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -13,10 +15,13 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsOpen(false); // Schließt das Menü auf dem Handy nach dem Klick
+    }
   };
 
-  // Deutsche Labels für die Navigation
   const navLinks = [
     { label: "Über mich", id: "about" },
     { label: "Skills", id: "skills" },
@@ -24,19 +29,19 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
   ];
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-50 px-4 md:px-8">
+    <nav className="fixed top-6 left-0 right-0 z-[100] px-4 md:px-8">
       <div className={`
-        max-w-6xl mx-auto rounded-full transition-all duration-500 border
+        max-w-6xl mx-auto rounded-[2.5rem] transition-all duration-500 border relative
         ${scrolled 
-          ? "bg-slate-950/80 backdrop-blur-xl border-slate-800 shadow-2xl py-3 px-8" 
-          : "bg-transparent border-transparent py-5 px-6"}
+          ? "bg-slate-950/90 backdrop-blur-xl border-slate-800 shadow-2xl py-3 px-8" 
+          : "bg-slate-900/40 backdrop-blur-md border-white/10 py-5 px-6"}
         flex items-center justify-between
       `}>
         
         {/* Logo-Bereich */}
         <Link 
           to="/" 
-          className="flex items-center gap-3 group"
+          className="flex items-center gap-3 group shrink-0"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <img 
@@ -56,15 +61,16 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
           </div>
         </Link>
 
-        {/* Navigation */}
-        <div className="flex items-center gap-6 md:gap-10">
+        {/* Navigation & Actions */}
+        <div className="flex items-center gap-3 md:gap-8">
+          {/* Desktop Links (nur sichtbar ab 'lg') */}
           {isHome && (
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8 mr-4">
               {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
-                  className="text-xs font-black uppercase tracking-widest text-slate-400 hover:text-pink-500 transition-colors"
+                  className="text-[10px] font-black uppercase tracking-widest text-slate-300 hover:text-pink-500 transition-colors"
                 >
                   {link.label}
                 </button>
@@ -72,22 +78,48 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
             </div>
           )}
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <Link
               to="/contact"
-              className="bg-pink-600 hover:bg-pink-500 text-white text-[10px] font-black uppercase tracking-widest px-6 py-2.5 rounded-full shadow-lg shadow-pink-600/20 transition-all active:scale-95"
+              className="bg-pink-600 hover:bg-pink-500 text-white text-[10px] font-black uppercase tracking-widest px-5 md:px-7 py-2.5 rounded-full shadow-lg shadow-pink-600/20 transition-all active:scale-95"
             >
               Kontakt
             </Link>
             
             <button
               onClick={toggleTheme}
-              className="p-2 text-yellow-400 hover:bg-slate-800 rounded-full transition-colors"
+              className="p-2.5 text-lg hover:bg-white/5 rounded-full transition-colors"
+              aria-label="Toggle Theme"
             >
               {theme === "light" ? "🌙" : "☀️"}
             </button>
+
+            {/* Burger Menu Button (nur sichtbar auf Mobile/Tablet) */}
+            {isHome && (
+              <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="lg:hidden p-2.5 text-white hover:bg-white/5 rounded-full transition-colors"
+              >
+                {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+              </button>
+            )}
           </div>
         </div>
+
+        {/* Mobiles Dropdown Menü */}
+        {isHome && isOpen && (
+          <div className="absolute top-[110%] left-0 right-0 p-6 bg-slate-950/95 backdrop-blur-2xl border border-slate-800 rounded-[2rem] shadow-2xl flex flex-col gap-6 lg:hidden animate-in fade-in slide-in-from-top-4">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                onClick={() => scrollTo(link.id)}
+                className="text-left text-sm font-black uppercase tracking-[0.2em] text-slate-200 hover:text-pink-500 py-2 border-b border-white/5 transition-colors"
+              >
+                {link.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
