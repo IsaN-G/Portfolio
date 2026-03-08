@@ -55,9 +55,9 @@ export const projects : Projects [] = [
   },
 
   {
-    id: "6",
+    id: "5",
     title: "Intelligence Dashboard",
-    image: "../IMG/project6.png",
+    image: "../IMG/project5.png",
     description: "Ein hochmodernes, personalisiertes Dashboard, das auf Next.js 15 basiert. Die App bietet eine Echtzeit-Wetter-Integration über externe APIs, ein dynamisches Todo-Management-System und ein geschütztes Benutzer-Profil. Besonderer Fokus lag auf der Performance-Optimierung durch Server Components und einer sicheren Datenhaltung mittels MongoDB. Ein benutzerdefiniertes Middleware-System steuert den Zugriff und die Authentifizierung.",
     year: 2026,
     client: "Eigenes Projekt / Forschungs-Case",
@@ -73,7 +73,7 @@ export const projects : Projects [] = [
       "Lucide Icons",
       "Figma",
     ],
-    liveUrl: "http://localhost:3000/register", 
+    liveUrl: "https://todo-weather-dashboard-isabelle-202-sage.vercel.app", 
     githubUrl: "https://github.com/IsaN-G/Todo-Weather-Dashboard-Isabelle-2026.git"
   },
   {

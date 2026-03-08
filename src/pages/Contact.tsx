@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaLinkedin,FaMapMarkerAlt, FaCheckCircle, FaPaperPlane,} from 'react-icons/fa';
+import { FaLinkedin, FaMapMarkerAlt, FaCheckCircle, FaPaperPlane } from 'react-icons/fa';
 
 const Contact = () => {
   const form = useRef<HTMLFormElement>(null);
@@ -33,20 +33,19 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto px-6 pt-85 pb-20 min-h-screen">
+    <div className="max-w-6xl mx-auto px-6 pt-24 md:pt-60 pb-20 min-h-screen">
       <div className="grid lg:grid-cols-2 gap-16 items-start">
         
         <div className="space-y-10">
           <div className="space-y-4">
           
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-slate-900 opacity-90 text-white dark:text-violet-400 text-s font-black uppercase tracking-widest shadow-lg">
-  <span className="relative flex h-2 w-2">
- 
-    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-95"></span>
-    <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-400"></span>
-  </span>
-  Verfügbar für Praktika (Teilzeit)
-</div>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-95"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-400"></span>
+              </span>
+              Verfügbar für Praktika (Teilzeit)
+            </div>
             
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-[0.9]">
               Lass uns <br />
@@ -54,7 +53,7 @@ const Contact = () => {
             </h1>
             
             <p className="text-xl text-slate-600 dark:text-slate-100 max-w-md leading-relaxed">
-            Vom erstklassigen Service zum erstklassigen Code im Browser: Organisationstalent trifft auf modernes Webdesign.
+              Vom erstklassigen Service zum erstklassigen Code im Browser: Organisationstalent trifft auf modernes Webdesign.
             </p>
           </div>
 
@@ -65,7 +64,9 @@ const Contact = () => {
               </div>
               <div>
                 <p className="text-[13px] font-black uppercase text-slate-400 tracking-[0.2em] mb-1">Netzwerk</p>
-                <a href="#" className="font-bold text-lg dark:text-white hover:text-pink-600 transition-colors">Isabelle auf LinkedIn</a>
+                <a href="https://www.linkedin.com/in/isabelle-nauber-gelhaar-2644b4347" 
+                  target="_blank" 
+                  rel="noopener noreferrer" className="font-bold text-lg dark:text-white hover:text-pink-600 transition-colors">Isabelle auf LinkedIn</a>
               </div>
             </div>
 
@@ -83,12 +84,12 @@ const Contact = () => {
 
         <div className="relative">
          
-          <div className="absolute -inset-10 bg-gradient-to-tr from-pink-500/20 to-rose-500/20 rounded-[3rem] blur-2xl -z-10" />
+          <div className="absolute -inset-2 bg-gradient-to-tr from-pink-500/20 to-rose-500/20 rounded-[3rem] blur-2xl -z-10" />
           
           <form 
             ref={form} 
             onSubmit={sendEmail} 
-           className="relative bg-white dark:bg-slate-950 p-10 md:p-14 rounded-[3.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 space-y-10 min-h-[400px] flex flex-col justify-between"
+            className="relative bg-white dark:bg-slate-950 p-10 md:p-14 rounded-[3.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 space-y-10 min-h-[400px] flex flex-col justify-between"
           >
             {isSuccess && (
               <div className="flex items-center gap-4 p-5 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded-2xl border border-green-200 dark:border-green-800 animate-in fade-in slide-in-from-top-4">
@@ -103,8 +104,10 @@ const Contact = () => {
                 <input
                   name="from_name" 
                   required
+                  defaultValue=""
+                  placeholder=" " 
+                  aria-label="Name"
                   className="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-pink-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all text-slate-900 dark:text-white font-medium"
-                  placeholder="Dein Name"
                 />
               </div>
 
@@ -114,8 +117,10 @@ const Contact = () => {
                   name="user_email" 
                   type="email"
                   required
+                  defaultValue=""
+                  placeholder=" " 
+                  aria-label="E-Mail Adresse"
                   className="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-pink-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all text-slate-900 dark:text-white font-medium"
-                  placeholder="beispiel@mail.de"
                 />
               </div>
             </div>
@@ -125,8 +130,10 @@ const Contact = () => {
               <textarea
                 name="message" 
                 required
+                defaultValue=""
+                placeholder=" " 
+                aria-label="Deine Nachricht"
                 className="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-pink-500 focus:bg-white dark:focus:bg-slate-700 outline-none transition-all text-slate-900 dark:text-white font-medium min-h-[180px] resize-none"
-                placeholder="Erzähl mir von deinem Projekt oder dem Praktikum..."
               />
             </div>
 
