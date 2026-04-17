@@ -1,146 +1,137 @@
-
 import SectionWrapper from "../components/SectionWrapper";
+import { useTheme } from "../context/ThemeContext"; // Import wichtig!
 import { 
   FaCode, 
-  FaPaintBrush, 
-  FaRunning, 
   FaUsers, 
-  FaHome, 
-  FaMapMarkerAlt, 
-  FaRegClock, 
-  FaRocket 
+  FaRocket, 
+  FaUtensils,
+  FaCheckDouble
 } from "react-icons/fa";
 
 const About = () => {
-  const journey = [
+  const { theme } = useTheme();
+
+  // Dynamischer Karten-Stil: Hellweiß im Light Mode, Glas-Effekt im Dark Mode
+  const cardStyle = `transition-all duration-500 rounded-[2.5rem] p-8 border ${
+    theme === "dark" 
+      ? "bg-slate-900/40 backdrop-blur-xl border-white/10 shadow-2xl" 
+      : "bg-white border-slate-200 shadow-lg"
+  } hover:border-pink-500/50 group`;
+
+  const strengths = [
     {
-      title: "Führungserfahrung & Gastro-Herz",
-      desc: "15 Jahre Gastronomie, davon mehrere als stellv. Restaurantleiterin. Ich weiß, was Verantwortung und Teamdynamik bedeuten.",
-      icon: <FaUsers size={20} />,
+      title: "Gastro-Mindset",
+      desc: "15 Jahre Erfahrung, davon Jahre als stellv. Restaurantleitung. Ich bewahre einen kühlen Kopf, wenn die 'Bestellungen' gleichzeitig reinkommen.",
+      icon: <FaUtensils size={22} />,
       color: "from-pink-500 to-rose-600"
     },
     {
-      title: "Kreativer Neuanfang",
-      desc: "Der Umzug aufs Land und meine Familie gaben den Impuls: Ich verwandle meine Leidenschaft für Ästhetik nun in digitales Design.",
-      icon: <FaPaintBrush size={20} />,
-      color: "from-purple-500 to-indigo-600"
+      title: "User Experience",
+      desc: "Ein Gast im Restaurant und ein User auf einer Website wollen dasselbe: Sich intuitiv zurechtfinden und exzellent bedient werden.",
+      icon: <FaUsers size={22} />,
+      color: "from-violet-500 to-indigo-600"
     },
     {
-      title: "Code & Design",
-      desc: "Webentwicklung ist für mich das perfekte Puzzle. Ich liebe es, funktionale Lösungen mit modernem Design zu verbinden.",
-      icon: <FaCode size={20} />,
+      title: "Code & Ästhetik",
+      desc: "Ich entwickle nicht nur funktionale Lösungen, sondern lege Wert auf ein Design, das eine Geschichte erzählt – so wie ein perfekt angerichteter Teller.",
+      icon: <FaCode size={22} />,
       color: "from-amber-500 to-orange-600"
     }
   ];
 
-  // Zentraler Stil für alle dunklen Karten (Konsistenz pur!)
-  const cardStyle = "bg-slate-900/90 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl transition-all duration-300";
-
   return (
     <SectionWrapper>
-      <div className="max-w-6xl mx-auto px-4 py-12">
+     <div id="about" className="max-w-7xl mx-auto px-6 lg:px-8 space-y-12">
         
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">
-            Hallo, ich bin <span className="text-pink-600">Isabelle</span>
-          </h2>
-          <div className="h-1.5 w-24 bg-pink-600 mx-auto rounded-full" />
+        {/* Haupt-Story */}
+        <div className={cardStyle}>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-pink-500 font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">
+                Meine Philosophie
+              </span>
+              <h2 className={`text-4xl md:text-5xl font-black mb-6 tracking-tighter leading-none ${
+                theme === "dark" ? "text-white" : "text-slate-900"
+              }`}>
+                Vom Service <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
+                  zum Interface.
+                </span>
+              </h2>
+              <div className="max-w-xl"> {/* Ein Container hilft, die Zeilenlänge leserfreundlich zu halten */}
+  <p className={`leading-relaxed text-lg font-medium mb-4 ${
+    theme === "dark" ? "text-slate-200" : "text-slate-800"
+  }`}>
+    Struktur im Hintergrund, Leidenschaft im Vordergrund. 
+    Diese Gastro-Prinzipien übertrage ich heute auf modernen Code.
+  </p>
+  
+  <p className={`leading-relaxed ${
+    theme === "dark" ? "text-slate-400" : "text-slate-600"
+  }`}>
+    Ich suche ein Praktikum, das meine Kreativität fordert und Raum für die 
+    <span className="italic font-semibold"> Balance zwischen Familie und Entwicklung </span> lässt.
+  </p>
+</div>
+</div>
+            {/* Stats Bereich */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+       { label: "Gastro-Erfahrung", val: "15y", col: "text-pink-500" },
+       { label: "Webdesign & Webentwicklung", val: "100%", col: "text-violet-500" },
+       { label: "Learning Curve", val: "Fast", col: "text-amber-500" },
+       { label: "Leadership Skills", val: "Team", col: "text-blue-500" }
+              ].map((stat, i) => (
+                <div key={i} className={`p-6 rounded-3xl border transition-all duration-300
+                  ${theme === "dark" 
+                    ? "bg-white/10 border-white/10 hover:bg-white/15" 
+                    : "bg-white border-slate-200 shadow-sm hover:shadow-md hover:border-slate-300"
+                  } text-center`}>
+                  <div className={`text-3xl font-black mb-1 ${theme === "dark" ? "text-white" : "text-slate-900"}`}>{stat.val}</div>
+                  <div className={`text-[10px] uppercase tracking-widest font-bold ${stat.col}`}>{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-10 items-start">
-          
-          {/* Linke Spalte: Bild & Quick Facts */}
-          <div className="lg:col-span-2 space-y-6">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 to-rose-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-500" />
-              <img
-                src="/IMG/7.jpg"
-                alt="Isabelle"
-                className="relative w-full aspect-square object-cover rounded-3xl shadow-2xl border-4 border-white dark:border-slate-800"
-              />
-            </div>
-            
-            <div className={cardStyle}>
-              <h3 className="text-xs font-black uppercase tracking-widest text-pink-500 mb-4">Fokus & Ziele</h3>
-              <div className="space-y-4">
-                {[
-                  { icon: <FaRocket className="text-pink-500" />, label: "Fokus", text: "Frontend & UI/UX" },
-                  { icon: <FaRegClock className="text-pink-500" />, label: "Typ", text: "Teilzeit-Praktikum" },
-                  { icon: <FaMapMarkerAlt className="text-pink-500" />, label: "Region", text: "Hambug / Lüneburg / Toppenstedt" }
-                ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
-                    <span className="shrink-0">{item.icon}</span>
-                    <span>{item.label}: <strong className="text-white">{item.text}</strong></span>
-                  </div>
-                ))}
+        {/* Die 3 Säulen */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {strengths.map((item, index) => (
+            <div key={index} className={cardStyle}>
+              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white mb-6 shadow-xl group-hover:scale-110 transition-transform duration-500`}>
+                {item.icon}
               </div>
-            </div>
-          </div>
-
-          {/* Rechte Spalte: Story & Journey */}
-          <div className="lg:col-span-3 space-y-8">
-            
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-slate-900 dark:text-white leading-tight">
-                Vom Service-Management zum <span className="text-pink-600">Pixel-Design</span>
+              <h3 className={`text-xl font-bold mb-3 tracking-tight ${theme === "dark" ? "text-white" : "text-slate-900"}`}>
+                {item.title}
               </h3>
-              
-              {/* Highlight Zitat-Box */}
-              <div className="bg-gradient-to-r from-pink-500 to-rose-600 p-8 rounded-2xl shadow-lg text-white transform hover:scale-[1.01] transition-transform duration-300">
-                <p className="text-xl font-medium leading-relaxed italic">
-                  "Ich liebe es, moderne Interfaces zu gestalten und sie mit <span className="border-b-2 border-white/40">React und Next.js</span> technisch zum Leben zu erwecken."
-                </p>
-              </div>
-
-              {/* Story-Text in einer Card für maximalen Kontrast */}
-              <div className={`${cardStyle} space-y-5 text-slate-300 text-lg leading-relaxed`}>
-                <p>
-                  Nach 15 Jahren in der Gastronomie habe ich gelernt, auch unter Hochdruck den Überblick zu behalten. Als <strong className="text-pink-400">stellvertretende Restaurantleiterin</strong> habe ich Strukturen geschaffen – heute übersetze ich diese Ordnung in sauberen Code.
-                </p>
-                <p>
-                  Ich suche die Balance zwischen <strong className="text-pink-400">Familie und Code</strong>. Mein Ziel ist ein Praktikum, in dem ich meine kreative Ader ausleben und meine technischen Skills vertiefen kann.
-                </p>
-              </div>
+              <p className={`text-sm leading-relaxed ${theme === "dark" ? "text-slate-400" : "text-slate-600"}`}>
+                {item.desc}
+              </p>
             </div>
+          ))}
+        </div>
 
-            {/* Journey Cards */}
-            <div className="grid gap-4">
-              {journey.map((step, idx) => (
-               <div 
-                  key={idx} 
-                  className={`${cardStyle} flex items-center gap-5 p-5 group hover:border-pink-500/50 hover:-translate-y-1`}
-               >
-                  <div className={`shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center text-white shadow-lg`}>
-                    {step.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-white group-hover:text-pink-400 transition-colors">{step.title}</h4>
-                    <p className="text-slate-400 text-sm leading-snug">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Hobby Badges - Jetzt ebenfalls im cardStyle */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { icon: <FaRunning className="text-pink-500" />, text: "Joggen als Stressausgleich" },
-                { icon: <FaHome className="text-pink-500" />, text: "Natur & Familie als Kraftquelle" }
-              ].map((hobby, i) => (
-                <div 
-                  key={i} 
-                  className={`${cardStyle} flex items-center gap-3 p-4 py-3 hover:scale-[1.02]`}
-                >
-                  <div className="shrink-0">{hobby.icon}</div>
-                  <span className="text-sm font-medium italic text-slate-300">
-                    {hobby.text}
-                  </span>
-                </div>
-              ))}
-            </div>
-
+        {/* Call to Action Bereich */}
+        <div className={`flex flex-col md:flex-row gap-6 items-center justify-between p-8 rounded-[2rem] border ${
+          theme === "dark" ? "bg-pink-600/5 border-pink-500/10" : "bg-pink-50 border-pink-100"
+        }`}>
+          <div className="flex items-center gap-4">
+            <FaRocket className="text-pink-500 text-2xl" />
+            <p className={`font-medium italic ${theme === "dark" ? "text-white" : "text-slate-800"}`}>
+            Bereit für ein <span className="font-bold text-[#d1127c]">Praktikum</span> im Raum 
+             <span className="font-bold text-[#d1127c]"> Toppenstedt / Lüneburg / Hamburg</span>, 
+             um technische Skills und kreatives Design zu vereinen.
+            </p>
           </div>
+          <button 
+            onClick={() => window.location.href = '/contact'}
+            className={`flex items-center gap-2 px-6 py-3 rounded-xl font-black uppercase tracking-widest text-[10px] transition-all ${
+              theme === "dark" ? "bg-white text-black hover:bg-pink-500 hover:text-white" : "bg-slate-900 text-white hover:bg-pink-600"
+            }`}
+          >
+            <FaCheckDouble /> Let's Talk
+          </button>
         </div>
       </div>
     </SectionWrapper>

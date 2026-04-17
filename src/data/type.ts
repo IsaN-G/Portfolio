@@ -11,6 +11,6 @@ export type Projects = {
     liveUrl?: string;
     githubUrl?: string;
     category?: string;
-
+    workflow: string;
+    architecture: string;
 };
-

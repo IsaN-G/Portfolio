@@ -1,4 +1,3 @@
-
 import About from "../pages/About";
 import Skills from "../pages/Skills";
 import Projects from "../pages/Projects";
@@ -20,5 +19,6 @@ const Home = () => {
 };
 
 export default Home;
+
 
   

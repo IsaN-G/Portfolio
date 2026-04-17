@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import { FaBars, FaTimes } from "react-icons/fa"; // Icons für das Handy-Menü
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export default function Navbar({ isHome }: { isHome: boolean }) {
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
-  const [isOpen, setIsOpen] = useState(false); // Zustand für das mobile Menü
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -14,11 +14,22 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // 🔥 NEUE, verbesserte Scroll-Funktion mit Offset
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setIsOpen(false); // Schließt das Menü auf dem Handy nach dem Klick
+      // Dynamisch die aktuelle Navbar-Höhe ermitteln + Puffer
+      const nav = document.querySelector("nav");
+      const navHeight = nav ? nav.offsetHeight + 24 : 100; // 24px = top-6 + extra Sicherheit
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - navHeight -0; // 20px extra Luft oben
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      setIsOpen(false); // Mobile-Menü schließen
     }
   };
 
@@ -31,14 +42,14 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
   return (
     <nav className="fixed top-6 left-0 right-0 z-[100] px-4 md:px-8">
       <div className={`
-        max-w-6xl mx-auto rounded-[2.5rem] transition-all duration-500 border relative
+        max-w-6xl h-12 mx-auto rounded-[2.5rem] transition-all duration-500 border relative
         ${scrolled 
           ? "bg-slate-950/90 backdrop-blur-xl border-slate-800 shadow-2xl py-3 px-8" 
           : "bg-slate-900/40 backdrop-blur-md border-white/10 py-5 px-6"}
         flex items-center justify-between
       `}>
         
-        {/* Logo-Bereich */}
+        {/* Logo-Bereich (unverändert) */}
         <Link 
           to="/" 
           className="flex items-center gap-3 group shrink-0"
@@ -47,7 +58,7 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
           <img 
             src="/IMG/3.png" 
             alt="Logo" 
-            className="h-10 w-auto group-hover:rotate-12 transition-transform duration-300" 
+            className="h-8 w-auto group-hover:rotate-12 transition-transform duration-300" 
           />
           <div className="hidden sm:flex items-center gap-3 tracking-tighter">
             <span className="text-white font-black text-xl italic">
@@ -61,9 +72,8 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
           </div>
         </Link>
 
-        {/* Navigation & Actions */}
+        {/* Navigation & Actions (unverändert) */}
         <div className="flex items-center gap-3 md:gap-8">
-          {/* Desktop Links (nur sichtbar ab 'lg') */}
           {isHome && (
             <div className="hidden lg:flex items-center gap-8 mr-4">
               {navLinks.map((link) => (
@@ -94,7 +104,6 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
               {theme === "light" ? "🌙" : "☀️"}
             </button>
 
-            {/* Burger Menu Button (nur sichtbar auf Mobile/Tablet) */}
             {isHome && (
               <button 
                 onClick={() => setIsOpen(!isOpen)}
@@ -106,7 +115,7 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
           </div>
         </div>
 
-        {/* Mobiles Dropdown Menü */}
+        {/* Mobiles Dropdown (unverändert) */}
         {isHome && isOpen && (
           <div className="absolute top-[110%] left-0 right-0 p-6 bg-slate-950/95 backdrop-blur-2xl border border-slate-800 rounded-[2rem] shadow-2xl flex flex-col gap-6 lg:hidden animate-in fade-in slide-in-from-top-4">
             {navLinks.map((link) => (

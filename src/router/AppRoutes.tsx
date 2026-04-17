@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from 'react-router-dom';
 
 import MainLayout from '../layout/MainLayout';
@@ -8,7 +7,8 @@ import Contact from '../pages/Contact';
 import Projects from '../pages/Projects';
 import NotfoundPage from '../pages/NotfoundPage';
 import ProjectDetail from '../pages/ProjectDetail';
-
+import Impressum from '../pages/Impressum'; 
+import Datenschutz from '../pages/Datenschutz';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +20,11 @@ export const router = createBrowserRouter([
       { path: "contact", element: <Contact /> },
       { path: "projects", element: <Projects /> },
       { path: "projects/:id", element: <ProjectDetail /> },
+      
+      { path: "impressum", element: <Impressum /> },
+      { path: "datenschutz", element: <Datenschutz /> },
+      
+  
       { path: "*", element: <NotfoundPage />},
     ],
   },

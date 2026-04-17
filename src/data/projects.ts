@@ -1,111 +1,95 @@
 import type { Projects } from "./type";
 
-export const projects : Projects [] = [
+export const projects: Projects[] = [
   {
     id: "1",
     title: "FilmStream",
-    image: "../IMG/project1.png",
-    description: "Eine moderne Streaming-Plattform, die durch ein minimalistisches Interface besticht. Der Fokus lag hier auf der Umsetzung eines 'Dark Mode First'-Designs und der nahtlosen Integration von Video-Content. Nutzer können durch Kategorien stöbern und erhalten eine Vorschau der neuesten Blockbuster in einer interaktiven Galerie.",
+    image: "/IMG/project1.png",
+    description: "Eine moderne Streaming-Plattform, entwickelt in einem intensiven 4-Tage-Sprint. Der Fokus lag auf einem 'Dark Mode First'-Design und einer performanten Video-Integration. Besonders stolz bin ich auf die interaktive Galerie-Vorschau, die trotz kurzer Entwicklungszeit stabil und performant läuft.",
     year: 2025,
     client: "Persönliches Portfolio-Projekt",
     role: "Frontend & UI Design",
     category: "Media & Entertainment",
-    technologies: ["JavaScript", "HTML", "CSS", "SCSS", "Responsive Design"],
+    technologies: ["JavaScript", "HTML", "SCSS", "Responsive Design", "UI/UX"],
+    workflow: "Agiler 4-Tage-Sprint mit Fokus auf Rapid Prototyping und sofortiger Umsetzung des Dark-Mode-Designs.",
+    architecture: "Komponentengesteuertes SCSS für eine modulare UI und performante DOM-Manipulation via Vanilla JavaScript.",
     liveUrl: "https://isan-g.github.io/Filme/",
     githubUrl: "https://github.com/IsaN-G/Filme.git"
   },
-    {
+  {
     id: "2",
-    title: "MusicStream",
-    image:  "../IMG/project2.png",
-    description: "Streaming Dienst mit Abonnement-Modell und personalisierten Empfehlungen",
-    year: 2025,
+    title: "Pinterest-Clone",
+    image: "/IMG/project2.png", 
+    description: "In diesem Next.js Projekt lag der Schwerpunkt auf dem visuellen Erlebnis und asynchronen Prozessen. Die technische Herausforderung war die Anbindung an Cloudinary für effiziente Bild-Uploads, während das Masonry-Layout flüssig bleibt.",
+    year: 2026,
     client: "Eigenes Projekt",
     role: "Full-Stack Entwickler",
     category: "Webanwendung",
-    technologies: ["JavaScript", "HTML,CSS"],
-    liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
-    githubUrl: ""
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Cloudinary API", "App Router"], 
+    workflow: "Mobile-First Entwicklung mit Fokus auf asynchrones Datenhandling und Benutzerinteraktion in Echtzeit.",
+    architecture: "Moderne Next.js App-Router Struktur mit Server Components und Cloudinary-Integration zur Bildoptimierung.",
+    liveUrl: "https://pinterest-clone-chi-seven.vercel.app",
+    githubUrl: "https://github.com/IsaN-G/pinterest-clone.git"
   },
-    {
+  {
     id: "3",
-    title: "Website",
-    image:  "../IMG/project3.png",
-    description: "Informations Seite über den Marianengraben",
-    year: 2025,
+    title: "Event-Planer Pro",
+    image: "/IMG/project3.png",
+    description: "Ein komplexes Full-Stack Projekt mit getrennter Architektur: Frontend auf Vercel, Backend auf Render und Datenbank via Supabase. Features wie Chat-Funktion und Ticket-System wurden innerhalb kürzester Zeit implementiert.",
+    year: 2026,
     client: "Eigenes Projekt",
-    role: "Full-Stack Entwickler",
-    category: "Webanwendung",
-    technologies: ["JavaScript", "HTML,CSS"],
-    liveUrl: "https://isan-g.github.io/Music-Streaming-Website/",
-    githubUrl: ""
+    role: "Full-Stack Developer",
+    category: "SaaS / Management",
+    technologies: ["React", "Node.js", "Supabase", "PostgreSQL", "Render", "Cloudinary"],
+    workflow: "Full-Stack Entwicklung mit Fokus auf Koordination von drei Hosting-Umgebungen (Vercel, Render, Supabase).",
+    architecture: "Microservice-orientierte Trennung von Client und REST-API mit einer relationalen PostgreSQL-Datenbank.",
+    liveUrl: "https://event-planner-iota-five.vercel.app",
+    githubUrl: "https://github.com/IsaN-G/Event-Planner.git" 
   },
   {
     id: "4",
     title: "Event-Einladung",
-    image: "../IMG/project4.png",
-    description: "Eine interaktive, mobile-first Web-Einladung für ein privates Event. Das Projekt besticht durch ein elegantes 'Glitter & Champagne' Design und bietet Gästen eine digitale Zusage-Funktion. Über ein modales Fenster können Gäste Details wie Personenanzahl und Getränkewünsche angeben, die anschließend automatisch als formatierte Nachricht direkt an die Gastgeber via WhatsApp versendet werden.",
+    image: "/IMG/project4.png",
+    description: "Eine Mobile-First Web-App mit WhatsApp-API Integration. Gästedaten werden aus einem modalen Fenster gesammelt und direkt als formatierte Nachricht versendet. Ein Mix aus elegantem Design und funktionaler Logik.",
     year: 2026, 
     client: "Privat-Auftrag",
-    role: "Frontend-Entwicklung & Design",
+    role: "Frontend & Design",
     category: "Event & Kommunikation",
-    technologies: ["JavaScript", "HTML", "CSS", "Mobile-First Design", "WhatsApp API Integration"],
+    technologies: ["JavaScript", "HTML", "CSS", "WhatsApp API", "Mobile-First"],
+    workflow: "Fokus auf UX-Design für mobile Endgeräte und nahtlose API-Anbindung an Drittanbieter (WhatsApp).",
+    architecture: "Event-basiertes JavaScript-Modell für Validierung von Formulardaten und dynamische API-Payloads.",
     liveUrl: "https://isan-g.github.io/Einladung-zum-Geburtstag/",
     githubUrl: "https://github.com/IsaN-G/Einladung-zum-Geburtstag.git"
   },
-
   {
     id: "5",
     title: "Intelligence Dashboard",
-    image: "../IMG/project5.png",
-    description: "Ein hochmodernes, personalisiertes Dashboard, das auf Next.js 15 basiert. Die App bietet eine Echtzeit-Wetter-Integration über externe APIs, ein dynamisches Todo-Management-System und ein geschütztes Benutzer-Profil. Besonderer Fokus lag auf der Performance-Optimierung durch Server Components und einer sicheren Datenhaltung mittels MongoDB. Ein benutzerdefiniertes Middleware-System steuert den Zugriff und die Authentifizierung.",
+    image: "/IMG/project5.png",
+    description: "Funktionales Next.js 15 Dashboard zur Erprobung von MongoDB. Beinhaltet Wetter-API Integrationen und ein sicheres Auth-System via Middleware. Fokus auf Datenvisualisierung und Performance.",
     year: 2026,
-    client: "Eigenes Projekt / Forschungs-Case",
+    client: "Eigenes Projekt",
     role: "Full-Stack Developer",
-    category: "Full-Stack Web App",
-    technologies: [
-      "Next.js 15", 
-      "TypeScript", 
-      "MongoDB", 
-      "Tailwind CSS", 
-      "Server Actions", 
-      "Middleware",
-      "Lucide Icons",
-      "Figma",
-    ],
+    category: "Productivity",
+    technologies: ["Next.js 15", "TypeScript", "MongoDB", "Tailwind CSS", "Server Actions", "Weather API"],
+    workflow: "Nutzung von Next.js 15 Server Actions zur effizienten Datenverarbeitung ohne unnötigen Client-Code.",
+    architecture: "NoSQL-Dokumentenmodell (MongoDB) mit Middleware-Schicht für sichere Routen-Protektion.",
     liveUrl: "https://todo-weather-dashboard-isabelle-202-sage.vercel.app", 
     githubUrl: "https://github.com/IsaN-G/Todo-Weather-Dashboard-Isabelle-2026.git"
   },
   {
-    id: "7",
-    title: "Brand Concept & Marketing",
-    image: "../IMG/project7.png",
-    description: "Entwicklung eines ganzheitlichen Vermarktungskonzepts für ein neues Produkt. Dieses Projekt umfasst die visuelle Identität (Branding), die Zielgruppenanalyse sowie die Gestaltung von Werbemitteln. Ziel war es, eine konsistente Markensprache zu entwickeln, die Emotionen weckt und die Alleinstellungsmerkmale des Produkts klar kommuniziert.",
+    id: "6",
+    title: "Brand Concept",
+    image: "/IMG/project6.png",
+    description: "Entwicklung einer ganzheitlichen Markenidentität. Zielgruppenanalyse, visuelles Storytelling und Erstellung konsistenter Werbemittel zur emotionalen Kundenansprache.",
     year: 2024,
-    client: "Design-Studie / Eigenprojekt",
-    role: "Visual Designer & Konzepter",
+    client: "Design-Studie",
+    role: "Visual Designer",
     category: "Marketing & Design",
-    technologies: ["Canva", "Visual Storytelling", "Branding", "Market Analysis"],
-    liveUrl: "https://www.canva.com/design/DAGqgqOnFbs/Pc8T5OgJjLxDSfdXVE2f-g/view?utm_content=DAGqgqOnFbs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=he5735a3262",
+    technologies: ["Canva", "Branding", "Visual Storytelling", "Market Analysis"],
+    workflow: "Analytischer Designprozess von der Zielgruppen-Persona bis zur finalen visuellen Umsetzung der Brand-Assets.",
+    architecture: "Konsistentes Design-System basierend auf festen Markenrichtlinien, Farbhierarchien und Typografie.",
+    liveUrl: "https://www.canva.com/design/DAGqgqOnFbs/Pc8T5OgJjLxDSfdXVE2f-g/view",
     githubUrl: "" 
-  },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 ];
     

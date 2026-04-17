@@ -1,50 +1,25 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    --color-earth-black: #0F172A;
+    --color-earth-beige: #F5F5DC;
+    --color-earth-terracotta: #C2410C;
+    --color-earth-green: #064E3B;
+    --color-earth-slate: #1E293B;
+  }
+}
+
 @layer utilities {
-    .scrollbar-hide {
-      -ms-overflow-style: none;          
-      scrollbar-width: none;             
-    }
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;                     
-    }
-  }
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
-  }
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border-width: 0;
-  }
- /* In deiner CSS Datei */
-@media (min-width: 768px) {
-  html, body, a, button, input, textarea {
-    cursor: none !important;
-  }
-}
-@keyframes reveal {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
   }
 }
 
-.animate-reveal {
-  display: inline-block;
-  animation: reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+html {
+  scroll-behavior: smooth;
 }
 
-.reveal-delay-1 { animation-delay: 0.2s; }
-.reveal-delay-2 { animation-delay: 0.4s; }
+body {
+  @apply antialiased;
+}
