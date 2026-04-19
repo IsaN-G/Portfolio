@@ -1,10 +1,12 @@
 import { useRef, useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { useTheme } from "../context/ThemeContext";
-import { FaLinkedin, FaMapMarkerAlt, FaCheckCircle, FaPaperPlane } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom"; // Neu hinzugefügt
+import { FaLinkedin, FaMapMarkerAlt, FaCheckCircle, FaPaperPlane, FaArrowLeft } from 'react-icons/fa';
 
 const Contact = () => {
   const { theme } = useTheme();
+  const navigate = useNavigate(); // Neu hinzugefügt
   const form = useRef<HTMLFormElement>(null);
   const [isSending, setIsSending] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -43,6 +45,18 @@ const Contact = () => {
       theme === "dark" ? "text-gray-300" : "text-slate-900"
     }`}>
       <div className="max-w-6xl mx-auto px-6 pt-24 md:pt-60 pb-20">
+        
+        {/* HIER IST DER NEUE BUTTON */}
+        <button 
+          onClick={() => navigate("/")} 
+          className={`group flex items-center gap-2 text-[10px] font-black uppercase tracking-widest mb-8 transition-colors ${
+            theme === "dark" ? "text-slate-500 hover:text-pink-500" : "text-slate-400 hover:text-pink-600"
+          }`}
+        >
+          <FaArrowLeft className="group-hover:-translate-x-1 transition-transform text-lg" />
+          <span>Zurück zur Übersicht</span>
+        </button>
+
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           
           <div className="space-y-10">

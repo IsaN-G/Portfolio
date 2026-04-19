@@ -39,8 +39,8 @@ const Projects = () => {
         {/* Highlight Section */}
         <div className="mb-16">
           {comingSoon.map((c) => (
-            <div key={c.id} className="relative group overflow-hidden rounded-[2rem] bg-slate-900 min-h-[400px] md:aspect-[21/9] shadow-2xl border border-cyan-500/20 transition-all duration-500">
-              <img src={c.image} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 md:opacity-60" />
+            <div key={c.id} className="relative group overflow-hidden rounded-[2rem] bg-slate-900 min-h-[400px] md:aspect-[17/9] shadow-2xl border border-cyan-500/20 transition-all duration-500">
+              <img src={c.image} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 md:opacity-80" />
               <div className="relative h-full flex items-end md:items-center bg-gradient-to-t from-black via-black/40 to-transparent">
                 <div className="p-6 md:p-16 max-w-3xl">
                   <div className="inline-flex items-center gap-2 bg-cyan-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-4 animate-pulse">
