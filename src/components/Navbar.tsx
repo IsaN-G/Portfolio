@@ -14,22 +14,19 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 🔥 NEUE, verbesserte Scroll-Funktion mit Offset
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      // Dynamisch die aktuelle Navbar-Höhe ermitteln + Puffer
-      const nav = document.querySelector("nav");
-      const navHeight = nav ? nav.offsetHeight + 24 : 100; // 24px = top-6 + extra Sicherheit
+      const navHeight = 100; 
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-      const offsetPosition = elementPosition - navHeight -0; // 20px extra Luft oben
+      const offsetPosition = elementPosition - navHeight;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
       });
 
-      setIsOpen(false); // Mobile-Menü schließen
+      setIsOpen(false); 
     }
   };
 
@@ -40,39 +37,39 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
   ];
 
   return (
-    <nav className="fixed top-6 left-0 right-0 z-[100] px-4 md:px-8">
+    <nav className="fixed top-4 md:top-6 left-0 right-0 z-[100] px-4 md:px-8">
       <div className={`
-        max-w-6xl h-12 mx-auto rounded-[2.5rem] transition-all duration-500 border relative
+        max-w-6xl mx-auto rounded-full transition-all duration-500 border relative
         ${scrolled 
-          ? "bg-slate-950/90 backdrop-blur-xl border-slate-800 shadow-2xl py-3 px-8" 
-          : "bg-slate-900/40 backdrop-blur-md border-white/10 py-5 px-6"}
-        flex items-center justify-between
+          ? "bg-slate-950/90 backdrop-blur-xl border-slate-800 shadow-2xl py-2 px-6 md:px-8" 
+          : "bg-slate-900/40 backdrop-blur-md border-white/10 py-3 md:py-5 px-5 md:px-6"}
+        flex items-center justify-between h-14 md:h-16
       `}>
         
-        {/* Logo-Bereich (unverändert) */}
+        {/* Logo-Bereich */}
         <Link 
           to="/" 
-          className="flex items-center gap-3 group shrink-0"
+          className="flex items-center gap-2 md:gap-3 group shrink-0"
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <img 
             src="/IMG/3.png" 
             alt="Logo" 
-            className="h-8 w-auto group-hover:rotate-12 transition-transform duration-300" 
+            className="h-7 md:h-8 w-auto group-hover:rotate-12 transition-transform duration-300" 
           />
-          <div className="hidden sm:flex items-center gap-3 tracking-tighter">
-            <span className="text-white font-black text-xl italic">
+          <div className="flex items-center gap-2 md:gap-3 tracking-tighter">
+            <span className="text-white font-black text-lg md:text-xl italic hidden xs:block">
               Isabelle
             </span>
-            <div className="h-8 w-[1px] bg-gradient-to-b from-transparent via-pink-600 to-transparent" />
-            <div className="flex flex-col">
-              <span className="text-white font-light text-sm tracking-[0.2em]">Nauber</span>
-              <span className="text-pink-600 font-black text-xs tracking-[0.1em]">Gelhaar</span>
+            <div className="h-6 w-[1px] bg-gradient-to-b from-transparent via-pink-600 to-transparent hidden sm:block" />
+            <div className="flex flex-col hidden sm:flex">
+              <span className="text-white font-light text-[10px] md:text-sm tracking-[0.2em] uppercase leading-none">Nauber</span>
+              <span className="text-pink-600 font-black text-[9px] md:text-xs tracking-[0.1em] uppercase leading-none">Gelhaar</span>
             </div>
           </div>
         </Link>
 
-        {/* Navigation & Actions (unverändert) */}
+        {/* Desktop Navigation & Actions */}
         <div className="flex items-center gap-3 md:gap-8">
           {isHome && (
             <div className="hidden lg:flex items-center gap-8 mr-4">
@@ -91,14 +88,14 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
           <div className="flex items-center gap-2 md:gap-4">
             <Link
               to="/contact"
-              className="bg-pink-600 hover:bg-pink-500 text-white text-[10px] font-black uppercase tracking-widest px-5 md:px-7 py-2.5 rounded-full shadow-lg shadow-pink-600/20 transition-all active:scale-95"
+              className="bg-pink-600 hover:bg-pink-500 text-white text-[9px] md:text-[10px] font-black uppercase tracking-widest px-4 md:px-7 py-2.5 rounded-full shadow-lg shadow-pink-600/20 transition-all active:scale-95 whitespace-nowrap"
             >
               Kontakt
             </Link>
             
             <button
               onClick={toggleTheme}
-              className="p-2.5 text-lg hover:bg-white/5 rounded-full transition-colors"
+              className="p-2 text-lg hover:bg-white/5 rounded-full transition-colors"
               aria-label="Toggle Theme"
             >
               {theme === "light" ? "🌙" : "☀️"}
@@ -107,22 +104,22 @@ export default function Navbar({ isHome }: { isHome: boolean }) {
             {isHome && (
               <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden p-2.5 text-white hover:bg-white/5 rounded-full transition-colors"
+                className="lg:hidden p-2 text-white hover:bg-white/5 rounded-full transition-colors"
               >
-                {isOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
+                {isOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
               </button>
             )}
           </div>
         </div>
 
-        {/* Mobiles Dropdown (unverändert) */}
+        {/* Mobiles Dropdown Menu */}
         {isHome && isOpen && (
-          <div className="absolute top-[110%] left-0 right-0 p-6 bg-slate-950/95 backdrop-blur-2xl border border-slate-800 rounded-[2rem] shadow-2xl flex flex-col gap-6 lg:hidden animate-in fade-in slide-in-from-top-4">
+          <div className="absolute top-[120%] left-0 right-0 p-3 bg-slate-950/95 backdrop-blur-2xl border border-white/10 rounded-[2rem] shadow-2xl flex flex-col gap-2 lg:hidden animate-in fade-in slide-in-from-top-4">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
-                className="text-left text-sm font-black uppercase tracking-[0.2em] text-slate-200 hover:text-pink-500 py-2 border-b border-white/5 transition-colors"
+                className="text-left text-xs font-black uppercase tracking-[0.2em] text-slate-200 hover:text-pink-500 p-4 bg-white/5 rounded-2xl transition-colors active:bg-pink-500/10"
               >
                 {link.label}
               </button>
