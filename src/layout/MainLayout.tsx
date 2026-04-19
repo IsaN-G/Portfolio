@@ -10,11 +10,14 @@ const MainLayout = () => {
   const isHome = location.pathname === "/";
 
   return (
-   
+    /* ÄNDERUNG: Wir nutzen jetzt eine sehr dunkle Farbe als Basis.
+       Wenn du den Light-Mode gar nicht willst, nimm die Bedingung ganz raus.
+       Falls du ihn willst, habe ich hier bg-slate-50 für einen sauberen Look gewählt.
+    */
     <div className={`relative flex flex-col min-h-screen transition-colors duration-500 overflow-x-hidden
       ${theme === "dark" 
-        ? "bg-[#020617] text-gray-400" 
-        : "bg-gray-200 text-slate-900"}`}>
+        ? "bg-[#050810] text-slate-400" 
+        : "bg-slate-50 text-slate-900"}`}>
       
       <Navbar isHome={isHome} />
 
