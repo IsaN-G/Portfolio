@@ -36,33 +36,39 @@ const Projects = () => {
           Ausgewählte Arbeiten
         </h2>
 
-        {/* Highlight Section */}
-        <div className="mb-16">
-          {comingSoon.map((c) => (
-            <div key={c.id} className="relative group overflow-hidden rounded-[2rem] bg-slate-900 min-h-[400px] md:aspect-[17/9] shadow-2xl border border-cyan-500/20 transition-all duration-500">
-              <img src={c.image} alt={c.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 md:opacity-80" />
-              <div className="relative h-full flex items-end md:items-center bg-gradient-to-t from-black via-black/40 to-transparent">
-                <div className="p-6 md:p-16 max-w-3xl">
-                  <div className="inline-flex items-center gap-2 bg-cyan-500 text-white text-[9px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-4 animate-pulse">
-                    🏗️ In Arbeit
-                  </div>
-                  <h3 className="text-3xl md:text-6xl font-black text-white mb-4 leading-none">Gastro-Management <br/> System</h3>
-                  <p className="text-sm md:text-xl text-gray-300 font-medium leading-relaxed max-w-xl">
-                    Von der Gastro für die Gastro: Ein Managementsystem, das den Fokus zurück auf den Gast lenkt.
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
+<div className="mb-16">
+  {comingSoon.map((c) => (
+    <div key={c.id} className="relative group overflow-hidden rounded-[2rem] bg-slate-900 min-h-[400px] md:aspect-[17/9] shadow-2xl border border-cyan-500/20 transition-all duration-500 hover:border-cyan-500/40">
+      
+    
+      <div className="absolute top-6 left-6 md:top-10 md:left-10 z-20">
+        <div className="inline-flex items-center gap-1.5 bg-cyan-500/10 text-cyan-300 text-[10px] md:text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-cyan-500/20 animate-pulse-fast">
+          <span className="text-sm">🏗️</span>
+          <span>In Arbeit</span>
         </div>
+      </div>
 
-        {/* Filter Leiste */}
+  
+      <img 
+        src={c.image} 
+        alt="StaffFlow Gastro-Management-System" 
+        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 md:opacity-90 z-0" 
+      />
+      
+     
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/30 via-transparent to-transparent">
+       
+      </div>
+    </div>
+  ))}
+</div>
+
+      
         <div className="flex items-center gap-4 mb-6">
           <h3 className={`text-xl md:text-2xl font-black ${theme === "dark" ? "text-white" : "text-slate-900"}`}>Portfolio</h3>
           <div className={`h-[1px] flex-grow ${theme === "dark" ? "bg-gray-800" : "bg-gray-200"}`}></div>
         </div>
 
-        {/* Filter Buttons - Horizontal scrollbar auf Mobile */}
         <div className="flex overflow-x-auto pb-4 md:pb-0 justify-start gap-2 mb-10 no-scrollbar">
           {["Alle", "Web Apps", "Full-Stack", "UI Design"].map((f) => (
             <button
