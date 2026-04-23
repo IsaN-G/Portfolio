@@ -54,7 +54,7 @@ const Header = () => {
           <div className="lg:col-span-7 space-y-6 md:space-y-8 text-center lg:text-left">
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
               <span className="flex h-2 w-2 rounded-full bg-pink-500 animate-pulse" />
-              <span className="text-white/80 text-[10px] font-bold uppercase tracking-[0.2em]">Verfügbar für ein Praktikum</span>
+              <span className="text-white/80 text-[10px] font-bold uppercase tracking-[0.2em]">Verfügbar für ein Praktikum oder direkt den Einstieg als Junior Fullstack Developer </span>
             </div>
 
             <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black text-[#F5F5DC] tracking-tighter leading-[0.9] uppercase">
