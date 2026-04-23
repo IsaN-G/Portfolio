@@ -125,7 +125,7 @@ const About = () => {
           <div className="flex items-center gap-4 text-center md:text-left">
             <FaRocket className="text-pink-500 text-2xl shrink-0" />
             <p className={`text-sm md:text-base font-medium ${theme === "dark" ? "text-white" : "text-slate-800"}`}>
-              Bereit für ein <span className="font-bold text-pink-600">Praktikum</span> im Raum Toppenstedt / Lüneburg / Hamburg.
+              Bereit für ein <span className="font-bold text-pink-600">Praktikum oder direkt den Einstieg als Junior Fullstack Developer</span> im Raum Toppenstedt / Lüneburg / Hamburg.
             </p>
           </div>
           
