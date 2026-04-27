@@ -68,7 +68,7 @@ const Contact = () => {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-400"></span>
                 </span>
-                Verfügbar für Praktika (Teilzeit)
+                Verfügbar für Praktika (Teilzeit) oder direkt den Einstieg als Junior Fullstack Developer
               </div>
               
               <h1 className={`text-5xl md:text-7xl font-black leading-[0.9] ${
