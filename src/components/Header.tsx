@@ -25,7 +25,7 @@ const Header = () => {
 
     const timer = setTimeout(handleTyping, isDeleting ? 40 : 100);
     return () => clearTimeout(timer);
-  }, [text, isDeleting, loopNum]);
+  }, [text, isDeleting, loopNum, words]);
 
   return (
     <header className="relative w-full min-h-screen overflow-hidden bg-[#050810] flex items-center pt-24 pb-12 lg:py-0">

@@ -2,6 +2,32 @@ import type { Projects } from "./type";
 
 export const projects: Projects[] = [
   {
+    id: "7",
+    title: "Ojaro",
+    image: "/IMG/ojaro-portfolio.png",
+    description: "Ojaro ist mein bisher umfangreichstes Full-Stack-Projekt: ein mandantenfähiges Betriebssystem für moderne Restaurants. Die Plattform verbindet Management, Mitarbeitende, Küche, Service und Gäste in einer gemeinsamen Anwendung. Enthalten sind unter anderem Dienstplanung, Zeiterfassung, Urlaubsverwaltung, Reservierungen, Gutscheine, digitale Speisekarten, Bestellungen, Terminals, Rollen- und Rechteverwaltung sowie ein Platform-Admin-Bereich. Neben der technischen Umsetzung habe ich auch Produktkonzept, UX, Markenauftritt und Landingpage vollständig entwickelt.",
+    year: 2026,
+    client: "Eigenes SaaS-Produkt",
+    role: "Product Owner, Full-Stack Developer & UI/UX Designer",
+    category: "SaaS / Restaurant Operations",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Express",
+      "Supabase",
+      "PostgreSQL",
+      "Stripe",
+      "Vercel",
+      "Render",
+      "Responsive Design"
+    ],
+    workflow: "Von der Problemanalyse in der Gastronomie über Datenmodell, Rollen- und Rechtekonzept und API-Entwicklung bis zum responsiven Interface, Branding und Deployment habe ich das Produkt eigenständig aufgebaut und kontinuierlich erweitert.",
+    architecture: "Mandantenfähige Full-Stack-Architektur mit React-Frontend, REST-API auf Node.js und Express, Supabase/PostgreSQL als Daten- und Authentifizierungsschicht sowie getrennten Oberflächen für Management, Mitarbeitende, Gäste und Restaurant-Terminals.",
+    liveUrl: "https://ojaro.de",
+    githubUrl: ""
+  },
+  {
     id: "1",
     title: "FilmStream",
     image: "/IMG/project1.png",
@@ -19,13 +45,13 @@ export const projects: Projects[] = [
   {
     id: "2",
     title: "Pinterest-Clone",
-    image: "/IMG/project2.png", 
+    image: "/IMG/project2.png",
     description: "In diesem Next.js Projekt lag der Schwerpunkt auf dem visuellen Erlebnis und asynchronen Prozessen. Die technische Herausforderung war die Anbindung an Cloudinary für effiziente Bild-Uploads, während das Masonry-Layout flüssig bleibt.",
     year: 2026,
     client: "Eigenes Projekt",
     role: "Full-Stack Entwickler",
     category: "Webanwendung",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Cloudinary API", "App Router"], 
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Cloudinary API", "App Router"],
     workflow: "Mobile-First Entwicklung mit Fokus auf asynchrones Datenhandling und Benutzerinteraktion in Echtzeit.",
     architecture: "Moderne Next.js App-Router Struktur mit Server Components und Cloudinary-Integration zur Bildoptimierung.",
     liveUrl: "https://pinterest-clone-chi-seven.vercel.app",
@@ -44,14 +70,14 @@ export const projects: Projects[] = [
     workflow: "Full-Stack Entwicklung mit Fokus auf Koordination von drei Hosting-Umgebungen (Vercel, Render, Supabase).",
     architecture: "Microservice-orientierte Trennung von Client und REST-API mit einer relationalen PostgreSQL-Datenbank.",
     liveUrl: "https://event-planner-iota-five.vercel.app",
-    githubUrl: "https://github.com/IsaN-G/Event-Planner.git" 
+    githubUrl: "https://github.com/IsaN-G/Event-Planner.git"
   },
   {
     id: "4",
     title: "Event-Einladung",
     image: "/IMG/project4.png",
     description: "Eine Mobile-First Web-App mit WhatsApp-API Integration. Gästedaten werden aus einem modalen Fenster gesammelt und direkt als formatierte Nachricht versendet. Ein Mix aus elegantem Design und funktionaler Logik.",
-    year: 2026, 
+    year: 2026,
     client: "Privat-Auftrag",
     role: "Frontend & Design",
     category: "Event & Kommunikation",
@@ -73,7 +99,7 @@ export const projects: Projects[] = [
     technologies: ["Next.js 15", "TypeScript", "MongoDB", "Tailwind CSS", "Server Actions", "Weather API"],
     workflow: "Nutzung von Next.js 15 Server Actions zur effizienten Datenverarbeitung ohne unnötigen Client-Code.",
     architecture: "NoSQL-Dokumentenmodell (MongoDB) mit Middleware-Schicht für sichere Routen-Protektion.",
-    liveUrl: "https://todo-weather-dashboard-isabelle-202-sage.vercel.app", 
+    liveUrl: "https://todo-weather-dashboard-isabelle-202-sage.vercel.app",
     githubUrl: "https://github.com/IsaN-G/Todo-Weather-Dashboard-Isabelle-2026.git"
   },
   {
@@ -89,7 +115,6 @@ export const projects: Projects[] = [
     workflow: "Analytischer Designprozess von der Zielgruppen-Persona bis zur finalen visuellen Umsetzung der Brand-Assets.",
     architecture: "Konsistentes Design-System basierend auf festen Markenrichtlinien, Farbhierarchien und Typografie.",
     liveUrl: "https://www.canva.com/design/DAGqgqOnFbs/Pc8T5OgJjLxDSfdXVE2f-g/view",
-    githubUrl: "" 
+    githubUrl: ""
   }
 ];
-    
